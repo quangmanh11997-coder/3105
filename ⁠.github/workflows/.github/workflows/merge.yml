@@ -1,0 +1,17 @@
+name: Merge 3105
+on:
+  workflow_dispatch:
+  push:
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python merge.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v50-aim-3105
+          path: V50_AIM_FINAL.3105
